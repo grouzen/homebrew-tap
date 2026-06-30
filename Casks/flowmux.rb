@@ -1,9 +1,8 @@
 cask "flowmux" do
-  version "0.1.1"
-  sha256 "9a335225c77d98f879fda1607510ca8f8d1ec812824708d7ccdf0380f3247a87"
+  version "0.1.2"
+  sha256 "c82b962f4928f8a24b04eed14326dcc71ce502f23e3599aba57bdd17a92573fa"
 
-  url "https://github.com/grouzen/flowmux/releases/download/v#{version}/flowmux-v#{version}-aarch64-apple-darwin.tar.gz",
-      verified: "github.com/grouzen/flowmux/"
+  url "https://github.com/grouzen/flowmux/releases/download/v#{version}/flowmux-v#{version}-aarch64-apple-darwin.tar.gz"
   name "Flowmux"
   desc "Terminal-native AI agent multiplexer"
   homepage "https://github.com/grouzen/flowmux"
@@ -18,4 +17,3 @@ cask "flowmux" do
 
   binary "flowmux-v#{version}-aarch64-apple-darwin/flowmux"
 end
-
