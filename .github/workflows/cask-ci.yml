@@ -15,9 +15,6 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Verify runner architecture
-        run: test "$(uname -m)" = "arm64"
-
       - name: Discover casks
         id: discover
         shell: bash
@@ -44,9 +41,6 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Verify runner architecture
-        run: test "$(uname -m)" = "arm64"
-
       - name: Update Homebrew
         run: brew update
 
@@ -60,13 +54,13 @@ jobs:
         run: brew style --cask "$TAP_NAME"
 
   smoke-test-casks:
-    runs-on: macos-14
     needs: discover-casks
     if: ${{ needs.discover-casks.outputs.casks != '[]' }}
     strategy:
       fail-fast: false
       matrix:
         cask: ${{ fromJson(needs.discover-casks.outputs.casks) }}
+    runs-on: macos-14
     env:
       TAP_NAME: grouzen/tap
       HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
@@ -74,9 +68,6 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
-      - name: Verify runner architecture
-        run: test "$(uname -m)" = "arm64"
 
       - name: Update Homebrew
         run: brew update
