@@ -1,6 +1,6 @@
 cask "flowmux" do
-  version "0.1.4"
-  sha256 "252bee74dedd40e3c691ba28caa772a3188369f81d151974cf49a56392d8403c"
+  version "0.2.0"
+  sha256 "56581012677e309b0a2076613350c6f29c3757b95cb19b00ba7eea6995b8991c"
 
   url "https://github.com/grouzen/flowmux/releases/download/v#{version}/flowmux-v#{version}-universal2-apple-darwin.tar.gz"
   name "Flowmux"
