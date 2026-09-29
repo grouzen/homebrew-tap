@@ -78,6 +78,12 @@ jobs:
       - name: Fetch cask artifact
         run: brew fetch --cask "$TAP_NAME/${{ matrix.cask }}" --retry
 
+      - name: Unlink conflicting OpenSSL version
+        run: |
+          if brew list --formula --versions openssl@1.1 | grep -q .; then
+            brew unlink openssl@1.1
+          fi
+
       - name: Install cask
         run: brew install --cask "$TAP_NAME/${{ matrix.cask }}"
 
